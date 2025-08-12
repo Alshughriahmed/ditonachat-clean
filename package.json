@@ -1,0 +1,38 @@
+{
+  "name": "ditonachat-new",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "sh -c './scripts/kill-ports.sh 3000 && next dev -H 0.0.0.0 -p 3000'",
+    "build": "next build",
+    "start": "next start -H 0.0.0.0 -p ${PORT:-3000}",
+    "lint": "next lint",
+    "type-check": "tsc -p . --noEmit"
+  },
+  "dependencies": {
+    "@auth/prisma-adapter": "^2.10.0",
+    "@prisma/client": "^5.10.2",
+    "@upstash/redis": "^1.35.3",
+    "@use-gesture/react": "^10.3.1",
+    "framer-motion": "^12.23.12",
+    "ioredis": "^5.7.0",
+    "next": "14.1.0",
+    "next-auth": "^4.24.11",
+    "react": "^18",
+    "react-dom": "^18",
+    "socket.io": "^4.8.1",
+    "socket.io-client": "^4.8.1",
+    "stripe": "^18.4.0",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "24.2.0",
+    "@types/react": "^19.1.9",
+    "@types/react-dom": "^19.1.7",
+    "dotenv": "^17.2.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.1.0",
+    "prisma": "^5.10.2",
+    "typescript": "5.3.3"
+  }
+}

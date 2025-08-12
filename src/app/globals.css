@@ -1,0 +1,15 @@
+/* TESTING: should make background red */
+body { background-color: red !important; }
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* بعد هذه التوجيهات يمكنك إضافة أنماطك الخاصة */
+:root {
+  --bg-dark: #000000;
+  --overlay: rgba(0,0,0,0.55);
+  --text-light: #f3f3f3;
+  --accent: #ec4899;
+}
+
+/* بقية CSS القديم هنا… */

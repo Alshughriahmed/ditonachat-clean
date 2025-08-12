@@ -1,0 +1,87 @@
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  overflow: hidden;
+}
+
+.topBar {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  color: #fff;
+  z-index: 20;
+}
+
+.status   { font-size: 0.85rem; }
+.likes    { font-size: 0.9rem; }
+.vip      { font-size: 0.9rem; color: gold; }
+.location { font-size: 0.85rem; }
+
+.remoteVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* معاينة الفيديو الشخصية */
+.selfPreview {
+  border: 4px solid #ec4899;        /* rose-500 */
+  box-shadow: 0 0 10px rgba(236,72,153,0.6);
+}
+
+.selfVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.switchBtn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+}
+
+/* شريط الأدوات السفلي */
+.toolbar {
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(8px);
+  padding: 0.5rem;
+  border-radius: 9999px;
+}
+
+.toolbar button {
+  background: transparent;
+  border: none;
+  font-size: 1.4rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+.endBtn {
+  color: #ff4d4d;
+}
+
+/* لوحة الدردشة الجانبية */
+.chatPanel {
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(4px);
+  max-height: 24rem;
+  overflow-y: auto;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+

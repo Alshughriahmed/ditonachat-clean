@@ -1,0 +1,61 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ✅ حالة الاشتراك بصيغة enum لتحسين الدقة والأداء
+// enum String {
+//   active
+//   trialing
+//   past_due
+//   canceled
+//   incomplete
+//   incomplete_expired
+//   unpaid
+// }
+
+model User {
+  id               String           @id @default(cuid())
+  email            String?          @unique
+  username         String?
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
+  stripeCustomerId String?          @unique
+  subscriptions    Subscription[]
+  preferences      UserPreferences?
+}
+
+model Subscription {
+  id                 String    @id @default(cuid())
+  user               User      @relation(fields: [userId], references: [id])
+  userId             String
+  plan               String // اسم الخطة أو الـ nickname أو الـ priceId
+  priceId            String? // مفيد لتتبع الـ price مباشرة من Stripe
+  status             String
+  stripeSubId        String?   @unique
+  currentPeriodStart DateTime?
+  currentPeriodEnd   DateTime?
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+
+  @@index([userId]) // ✅ للاستعلامات السريعة حسب المستخدم
+}
+
+// model Subscription {
+//   // ...
+// }
+
+model UserPreferences {
+  id         String   @id @default(cuid())
+  user       User     @relation(fields: [userId], references: [id])
+  userId     String   @unique
+  genderPref String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
